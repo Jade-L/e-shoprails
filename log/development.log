@@ -111,3 +111,28 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-02-24 12:12:24 +0100
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JSjNQozTta84cNWD4ZHjGjxoBNW+Qw/snPZGDRbvtvjVNGTRlr/hnFM8yHdxfVx5rM5g1OE7fbZqi8IsRgFitQ==", "user"=>{"email"=>"admin@admin.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (26.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "admin@admin.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2016-02-24 11:12:25.649171"], ["current_sign_in_at", "2016-02-24 11:12:25.649171"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2016-02-24 11:12:25.650490"], ["id", 1]]
+  [1m[35m (28.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 525ms (ActiveRecord: 60.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-24 12:12:25 +0100
+Processing by ApplicationController#page_vide as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered application/page_vide.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 809ms (Views: 805.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/brands.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-24 12:12:27 +0100
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-24 12:12:27 +0100
