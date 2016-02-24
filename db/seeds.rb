@@ -12,12 +12,11 @@ User.delete_all
 User.create!(email: 'admin@admin.com', password:"password", password_confirmation:"password")
 
 brand = ['brand1','brand2','brand3','brand4','brand5','brand6','brand7','brand8','brand9','brand10']
-10.times each do |i|
+10.times do |i|
   a = Brand.create(name: "#{brand[i]}")
+150.times do |s|
+  Product.create(name: "product#{s}", brand_id: a.id )
 end
-
-150.times each do |s|
-  Product.create(name: "product#{y}", brand_id: a.id )
 end
 
 # # Use these variable to  populate text zones
